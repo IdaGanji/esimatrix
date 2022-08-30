@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZPOA_AUTH_ESC_MATRIX_PROJ_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="POAAuthEscMatrixProj" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Changeid"/>
+                </Key>
+                <Property Name="OrgRole" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Role" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Changeid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="WF ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrgRoleowner" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Batchno" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrgStartdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Esicode" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="ESICODE" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="OrgEntry" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Budgetpack" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="BUDGETPACK" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="PROJECT" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Projectmanager" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="PROJECTMANAGER" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Level1role" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Level 1" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Level2role" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Level 2" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Level3role" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Level 3" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Level4role" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Level 4" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Level5role" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Level 5" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="WfStatus" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Workflow Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="POAAuthEscMatrixProjHD" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BatchNo"/>
+                </Key>
+                <Property Name="BatchNo" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Action" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Requester" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Date" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Time" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Comment" Type="Edm.String" MaxLength="250" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="POAAuthEscProjHD2MatrixNAV" Relationship="ZPOA_AUTH_ESC_MATRIX_PROJ_SRV.POAAuthEscProjHD2Matrix" FromRole="FromRole_POAAuthEscProjHD2Matrix" ToRole="ToRole_POAAuthEscProjHD2Matrix"/>
+            </EntityType>
+            <Association Name="POAAuthEscProjHD2Matrix" sap:content-version="1">
+                <End Type="ZPOA_AUTH_ESC_MATRIX_PROJ_SRV.POAAuthEscMatrixProjHD" Multiplicity="1" Role="FromRole_POAAuthEscProjHD2Matrix"/>
+                <End Type="ZPOA_AUTH_ESC_MATRIX_PROJ_SRV.POAAuthEscMatrixProj" Multiplicity="*" Role="ToRole_POAAuthEscProjHD2Matrix"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_POAAuthEscProjHD2Matrix">
+                        <PropertyRef Name="BatchNo"/>
+                    </Principal>
+                    <Dependent Role="ToRole_POAAuthEscProjHD2Matrix">
+                        <PropertyRef Name="Batchno"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZPOA_AUTH_ESC_MATRIX_PROJ_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="POAAuthEscMatrixProjSet" EntityType="ZPOA_AUTH_ESC_MATRIX_PROJ_SRV.POAAuthEscMatrixProj" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="POAAuthEscMatrixProjHDSet" EntityType="ZPOA_AUTH_ESC_MATRIX_PROJ_SRV.POAAuthEscMatrixProjHD" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="POAAuthEscProjHD2MatrixSet" Association="ZPOA_AUTH_ESC_MATRIX_PROJ_SRV.POAAuthEscProjHD2Matrix" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="POAAuthEscMatrixProjHDSet" Role="FromRole_POAAuthEscProjHD2Matrix"/>
+                    <End EntitySet="POAAuthEscMatrixProjSet" Role="ToRole_POAAuthEscProjHD2Matrix"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://det-dag-t:8000/sap/opu/odata/sap/ZPOA_AUTH_ESC_MATRIX_PROJ_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://det-dag-t:8000/sap/opu/odata/sap/ZPOA_AUTH_ESC_MATRIX_PROJ_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

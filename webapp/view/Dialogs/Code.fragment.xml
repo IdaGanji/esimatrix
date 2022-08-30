@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Select ESI Code"
+		search=".onESISearch"
+		confirm=".onESIValueHelpDialogClose"
+		cancel=".onESIValueHelpDialogClose"
+        showClearButton="true"
+        resizable="true"
+        multiSelect="true"
+		items="{
+			path: 'CodeValueHelpModel>/results'
+		}">
+		<StandardListItem
+			title="{CodeValueHelpModel>zzesipro}"
+			type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

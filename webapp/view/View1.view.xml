@@ -1,0 +1,267 @@
+<mvc:View
+		controllerName="zescesiproject.controller.View1"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:layout="sap.ui.layout"
+        xmlns:fb="sap.ui.comp.filterbar"
+        xmlns:core="sap.ui.core"
+		height="100%"
+        displayBlock="true">
+		<f:DynamicPage id="View1" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}" showFooter="true">
+			<!-- DynamicPage Title -->
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="{i18n>title}"/>
+					</f:heading>
+					<f:breadcrumbs>
+						<Breadcrumbs>
+							<Link text="{i18n>furtherNav1}" />
+							<Link text="{i18n>furtherNav2}" />
+						</Breadcrumbs>
+					</f:breadcrumbs>
+					<!-- <f:expandedContent>
+						<Label text="This is a subheading"/>
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label text="This is a subheading"/>
+					</f:snappedContent> -->
+					<!-- <f:snappedTitleOnMobile>
+						<Title text="This is a subheading"/>
+					</f:snappedTitleOnMobile> -->
+					<!-- <f:content>
+						<OverflowToolbar>
+							<GenericTag text="SR"
+								status="Error"
+								press="onPressOpenPopover"
+								design="StatusIconHidden">
+								<ObjectNumber number="2"
+									unit="M"
+									emphasized="false"
+									state="Error"/>
+							</GenericTag>
+						</OverflowToolbar>
+					</f:content> -->
+					<!-- <f:actions>
+						<Button
+								text="Edit"
+								type="Emphasized"
+								press="toggleAreaPriority"/>
+						<Button
+								text="Delete"
+								type="Transparent"/>
+						<Button
+								text="Copy"
+								type="Transparent"/>
+						<Button
+								text="Toggle Footer"
+								type="Transparent"
+								press="onToggleFooter"/>
+						<Button
+								icon="sap-icon://action"
+								type="Transparent"/>
+						<Button
+								text="Button with layoutData"
+								type="Transparent"
+								press="onPressOpenPopover">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="AlwaysOverflow" closeOverflowOnInteraction="false" />
+							</layoutData>
+						</Button>
+					</f:actions> -->
+					<!-- <f:navigationActions>
+						<Button
+								icon="sap-icon://full-screen"
+								type="Transparent" />
+						<Button
+								icon="sap-icon://exit-full-screen"
+								type="Transparent" />
+						<Button
+								icon="sap-icon://decline"
+								type="Transparent" />
+					</f:navigationActions> -->
+				</f:DynamicPageTitle>
+			</f:title>
+			<!-- DynamicPage Header -->
+			<f:header>
+				<f:DynamicPageHeader pinnable="true">
+					<!-- <layout:HorizontalLayout allowWrapping="true"> -->
+                        <fb:FilterBar reset="onReset" search="onGO" showRestoreButton="true" showClearOnFB="true" clear="onClear">
+                            <fb:filterGroupItems>
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="code" label="{i18n>code}" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                    <fb:control>
+                                    <MultiInput
+                                                id="codeInput"
+                                                placeholder="{i18n>searchforcode}"
+                                                showSuggestion="true"
+                                                showValueHelp="true"
+                                                valueHelpRequest=".onCodeValueHelpRequest"
+                                                tokens="{filterModel>/code}"
+                                                value="{filterModel>/code/key}">
+                                                <tokens>
+                                                    <Token key="{filterModel>key}" text="{filterModel>key}"  />
+                                                </tokens>
+                                    </MultiInput>
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="budgetPack" label="{i18n>budgetPack}" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <MultiInput
+                                                id="budgetPackInput"
+                                                placeholder="{i18n>searchforbudgetpack}"
+                                                showSuggestion="true"
+                                                showValueHelp="true"
+                                                valueHelpRequest=".onBudgetPackValueHelpRequest"
+                                                tokens="{filterModel>/budgetPack}"
+                                                value="{filterModel>/budgetPack/key}">
+                                                <tokens>
+                                                    <Token key="{filterModel>key}" text="{filterModel>key}"  />
+                                                </tokens>
+                                            </MultiInput>
+                                        
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="project" label="{i18n>project}" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                    <fb:control>
+                                       <MultiInput
+                                                id="projectInput"
+                                                placeholder="{i18n>searchforproject}"
+                                                showSuggestion="true"
+                                                showValueHelp="true"
+                                                valueHelpRequest=".onProjectValueHelpRequest"
+                                                tokens="{filterModel>/project}"
+                                                value="{filterModel>/project/key}"
+                                                tokenUpdate="onOwnerInputChange">
+                                                <tokens>
+                                                    <Token key="{filterModel>key}" text="{filterModel>key}"  />
+                                                </tokens>
+                                            </MultiInput>
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="projectManager" label="{i18n>projectManager}" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <MultiInput
+                                            id="projectManagerInput"
+                                            placeholder="{i18n>searchforprojectManager}"
+                                            showSuggestion="true"
+                                            showValueHelp="true"
+                                            valueHelpRequest=".onPMValueHelpRequest"
+                                            tokens="{filterModel>/projectManagaer}"
+                                            value="{filterModel>/projectManagaer/key}">
+                                            <tokens>
+                                               <Token  key="{filterModel>key}" text="{filterModel>key}"/>
+                                            </tokens>
+                                        </MultiInput>
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                
+                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="role" label="{i18n>role}" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                    <fb:control>
+                                        <MultiInput
+                                            id="roleInput"
+                                            placeholder="{i18n>searchforrole}"
+                                            showSuggestion="true"
+                                            showValueHelp="true"
+                                            valueHelpRequest=".onRoleValueHelpRequest"
+                                            tokens="{filterModel>/role}"
+                                            value="{filterModel>/role/key}"
+                                            tokenUpdate="onRoleInputChange">
+                                            <tokens>
+                                               <Token  key="{filterModel>key}" text="{filterModel>text}"/>
+                                            </tokens>
+                                        </MultiInput>
+                                    </fb:control>
+                                </fb:FilterGroupItem>  
+                            </fb:filterGroupItems>
+                        </fb:FilterBar>
+                
+					<!-- </layout:HorizontalLayout> -->
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<Table id="idTable"
+						sticky="HeaderToolbar,ColumnHeaders"
+						inset="false"
+						items="{
+							path: 'mainModel>/results',
+							sorter: {
+								path: 'Role'
+							}
+						}"
+					   class="sapFDynamicPageAlignContent"
+					   width="auto"
+                       growing="true"
+                       growingThreshold="20"
+                       mode="MultiSelect"
+                       selectionChange="onListItemPressed"
+                       >
+					<!-- <headerToolbar>
+						<Toolbar>
+							<Title text="Products" level="H2"/>
+						</Toolbar>
+					</headerToolbar> -->
+					<columns>
+						<Column id="codeColumn">
+							<Text text="{i18n>codeColumn}" />
+						</Column>
+						
+						<Column id="budgetPackColumn">
+							<Text text="{i18n>budgetPack}" />
+						</Column>
+
+                        <Column id="projectColumn">
+							<Text text="{i18n>project}" />
+						</Column>
+
+                        <Column id="projManColumn">
+							<Text text="{i18n>projMan}" />
+						</Column>
+
+                        <Column id="lev1Column">
+							<Text text="{i18n>lev1}" />
+						</Column>
+
+                        <Column id="lev2Column">
+							<Text text="{i18n>lev2}" />
+						</Column>
+
+                        <Column id="lev3Column">
+							<Text text="{i18n>lev3}" />
+						</Column>
+
+                        <Column id="lev4Column">
+							<Text text="{i18n>lev4}" />
+						</Column>
+
+                        <Column id="level5Column">
+							<Text text="{i18n>lev5}" />
+						</Column>
+
+					</columns>
+					<items>
+						<ColumnListItem selected="{mainModel>Selected}">
+							<cells>
+                                <Text text="{mainModel>Esicode}"/>
+                                <Text text="{mainModel>Budgetpack}"/>
+                                <Text text="{mainModel>Project}"/>
+                                <Text text="{mainModel>Projectmanager}"/>
+                                <Text text="{mainModel>Level1role}"/>
+                                <Text text="{mainModel>Level2role}"/>
+                                <Text text="{mainModel>Level3role}"/>
+                                <Text text="{mainModel>Level4role}"/>
+                                <Text text="{mainModel>Level5role}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+			<!-- DynamicPage Footer -->
+			<f:footer>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button type="Emphasized" text="{i18n>changeselectedentries}" press=".onPressChange"/>
+				</OverflowToolbar>
+			</f:footer>
+		</f:DynamicPage>
+</mvc:View>

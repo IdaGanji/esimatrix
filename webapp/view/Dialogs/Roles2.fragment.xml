@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Select Role"
+		search=".onRoleSearch"
+		confirm=".onRole2ValueHelpDialogClose"
+		cancel=".onRole2ValueHelpDialogClose"
+        showClearButton="true"
+        resizable="true"
+        multiSelect="false"
+		items="{
+			path: 'RoleValueHelpModel>/results'
+		}">
+		<StandardListItem
+			title="{RoleValueHelpModel>Role}"
+            description="{RoleValueHelpModel>RoleDescription}"
+			type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

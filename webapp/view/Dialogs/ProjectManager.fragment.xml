@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Select Project Manager"
+		search=".onPMSearch"
+		confirm=".onPMValueHelpDialogClose"
+		cancel=".onPMValueHelpDialogClose"
+        showClearButton="true"
+        resizable="true"
+        multiSelect="true"
+		items="{
+			path: 'PMValueHelpModel>/results'
+		}">
+		<StandardListItem
+			title="{PMValueHelpModel>ESIProjectManager}"
+			type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

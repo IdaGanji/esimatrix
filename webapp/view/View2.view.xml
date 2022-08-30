@@ -1,0 +1,203 @@
+<mvc:View
+		controllerName="zescesiproject.controller.View2"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:layout="sap.ui.layout"
+        xmlns:fb="sap.ui.comp.filterbar"
+        xmlns:core="sap.ui.core"
+		height="100%"
+        displayBlock="true">
+		<f:DynamicPage id="View2" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}" showFooter="true">
+			<!-- DynamicPage Title -->
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="{i18n>title}"/>
+					</f:heading>
+					<f:breadcrumbs>
+						<Breadcrumbs>
+							<Link text="{i18n>furtherNav1}" />
+							<Link text="{i18n>furtherNav2}" />
+						</Breadcrumbs>
+					</f:breadcrumbs>
+					<!-- <f:expandedContent>
+						<Label text="This is a subheading"/>
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label text="This is a subheading"/>
+					</f:snappedContent> -->
+					<!-- <f:snappedTitleOnMobile>
+						<Title text="This is a subheading"/>
+					</f:snappedTitleOnMobile> -->
+					<!-- <f:content>
+						<OverflowToolbar>
+							<GenericTag text="SR"
+								status="Error"
+								press="onPressOpenPopover"
+								design="StatusIconHidden">
+								<ObjectNumber number="2"
+									unit="M"
+									emphasized="false"
+									state="Error"/>
+							</GenericTag>
+						</OverflowToolbar>
+					</f:content> -->
+					<!-- <f:actions>
+						<Button
+								text="Edit"
+								type="Emphasized"
+								press="toggleAreaPriority"/>
+						<Button
+								text="Delete"
+								type="Transparent"/>
+						<Button
+								text="Copy"
+								type="Transparent"/>
+						<Button
+								text="Toggle Footer"
+								type="Transparent"
+								press="onToggleFooter"/>
+						<Button
+								icon="sap-icon://action"
+								type="Transparent"/>
+						<Button
+								text="Button with layoutData"
+								type="Transparent"
+								press="onPressOpenPopover">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="AlwaysOverflow" closeOverflowOnInteraction="false" />
+							</layoutData>
+						</Button>
+					</f:actions> -->
+					<!-- <f:navigationActions>
+						<Button
+								icon="sap-icon://full-screen"
+								type="Transparent" />
+						<Button
+								icon="sap-icon://exit-full-screen"
+								type="Transparent" />
+						<Button
+								icon="sap-icon://decline"
+								type="Transparent" />
+					</f:navigationActions> -->
+				</f:DynamicPageTitle>
+			</f:title>
+			<!-- DynamicPage Header -->
+			
+			<f:content>
+				<Table id="idChangeTable"
+						sticky="HeaderToolbar,ColumnHeaders"
+						inset="false"
+						items="{
+							path: 'changeModel>/',
+							sorter: {
+								path: 'Role'
+							}
+						}"
+					   class="sapFDynamicPageAlignContent"
+					   width="auto"
+                       growing="true"
+                       growingThreshold="20"
+                       mode="MultiSelect"
+                       selectionChange="onListItemPressed"
+                       >
+					<!-- <headerToolbar>
+						<Toolbar>
+							<Title text="Products" level="H2"/>
+						</Toolbar>
+					</headerToolbar> -->
+					<columns>
+						<Column id="codeCColumn">
+							<Text text="{i18n>codeColumn}" />
+						</Column>
+						
+						<Column id="budgetPackCColumn">
+							<Text text="{i18n>budgetPack}" />
+						</Column>
+
+						<Column id="projectCColumn">
+							<Text text="{i18n>project}" />
+						</Column>
+
+                        <Column id="projManCColumn">
+							<Text text="{i18n>projMan}" />
+						</Column>
+
+                        <Column id="lev1CColumn">
+							<Text text="{i18n>lev1}" />
+						</Column>
+
+                        <Column id="lev2CColumn">
+							<Text text="{i18n>lev2}" />
+						</Column>
+
+                        <Column id="lev3CColumn">
+							<Text text="{i18n>lev3}" />
+						</Column>
+
+                        <Column id="lev4CColumn">
+							<Text text="{i18n>lev4}" />
+						</Column>
+
+                        <Column id="level5CColumn">
+							<Text text="{i18n>level5}" />
+						</Column>
+
+
+                        
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+                             <Text text="{changeModel>Esicode}"/>
+                             <Text text="{changeModel>Budgetpack}"/>
+                             <Text text="{changeModel>Project}"/>
+                             <Text text="{changeModel>Projectmanager}"/>
+                             <Input
+                                        showValueHelp="true"
+                                        id="idLevel1Input"
+                                        value="{changeModel>Level1role}"
+                                        valueHelpRequest="onRole1ValueHelpRequest">
+                             </Input>
+                             <Input
+                                        showValueHelp="true"
+                                        id="idLevel2Input"
+                                        value="{changeModel>Level2role}"
+                                        valueHelpRequest="onRole2ValueHelpRequest">
+                             </Input>
+                             <Input
+                                        showValueHelp="true"
+                                        id="idLevel3Input"
+                                        value="{changeModel>Level3role}"
+                                        valueHelpRequest="onRole3ValueHelpRequest">
+                             </Input>
+                             <Input
+                                        showValueHelp="true"
+                                        id="idLevel4Input"
+                                        value="{changeModel>Level4role}"
+                                        valueHelpRequest="onRole4ValueHelpRequest">
+                             </Input>
+                             <Input
+                                        showValueHelp="true"
+                                        id="idLevel5Input"
+                                        value="{changeModel>Level5role}"
+                                        valueHelpRequest="onRole5ValueHelpRequest">
+                             </Input>
+                           
+
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+			<!-- DynamicPage Footer -->
+			<f:footer>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button type="Emphasized" text="{i18n>comment}" press=".onPressNewRole"/>
+					<Button type="Emphasized" text="{i18n>submitrequest}" press=".onPressSubmit"/>
+				</OverflowToolbar>
+			</f:footer>
+		</f:DynamicPage>
+</mvc:View>
